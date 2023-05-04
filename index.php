@@ -20,7 +20,7 @@
             </button>
 
         </nav>
-        <h1 class="d-flex justify-content-center  text-warning mt-5">Ajout produit</h1>
+        <h1 class="d-flex justify-content-center text-warning mt-5">Ajout produit</h1>
     </header>
     <form action="traitement.php" method="post" class=" container-sm d-flex flex-row justify-content-around bg-warning rounded-4 shadow mt-5" >
         <div class="">
