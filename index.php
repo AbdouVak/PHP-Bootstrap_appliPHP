@@ -27,7 +27,7 @@
         <h1 class="d-flex justify-content-center text-warning mt-5">Ajout produit</h1>
     </header>
 
-    <form action="traitement.php" method="post" class=" container-sm d-flex flex-row justify-content-around bg-warning rounded-4 shadow mt-5">
+    <form action="traitement.php?action=ajoutProduit" method="post" class=" container-sm d-flex flex-row justify-content-around bg-warning rounded-4 shadow mt-5">
     <div class="">
         
         <div class="d-flex justify-content-around flex-row  bg-secondary mt-5 mb-5 shadow rounded-2">
@@ -61,7 +61,7 @@
     </div>
 
     <p class="d-flex justify-content-center align-items-center">
-        <input type="submit" name="submit" value="Ajouter le produit" class="fs-2 bg-secondary text-white border border-0 rounded-5 p-3 shadow-lg">
+        <input type="submit"  name="submit" value="Ajouter le produit" class="fs-2 bg-secondary text-white border border-0 rounded-5 p-3 shadow-lg">
     </p>
     </form>
     
