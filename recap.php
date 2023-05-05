@@ -24,6 +24,9 @@
         </nav>
         <h1 class="d-flex justify-content-center  text-warning mt-5">Votre panier</h1>
     <?php 
+        function minus(){
+
+        }
 
         //vérifie clé "products" du tableau $_SESSION n'existe pas : !isset()
         //soit clé existe mais ne contient aucune donnée : empty()
@@ -46,22 +49,15 @@
                 $totalGeneral = 0;
                 //boucle itérative foreach efficace pour exécuter, produit par produit
                 foreach($_SESSION['products'] as $index => $product){
-                    $index=$index+1;
                     echo "<tr>",
                             "<td class='fs-2 text-secondary'>".$index."</td>",
                             "<td class='fs-2 text-secondary'>".$product['name']."</td>",
                             //fonction number_format() permet de modifier l'affichage d'une valeur numérique
                             "<td class='fs-2 text-secondary'>".number_format($product['price'],2,",","&nsbp;")." €</td>",
-                            "<td class='fs-2 text-secondary'>".$product['qtt']."</td>",
-                            "<td class='fs-2 text-secondary'>".number_format($product['total'],2,",","&nsbp;")." €</td>",
                             "<td class='fs-2 text-secondary'>
-                                <button type='button' class='btn btn-warning position-relative'>
-                                    <svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' class='bi bi-trash text.secondary' viewBox='0 0 16 16'>
-                                        <path d='M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z'/>
-                                        <path d='M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z'/>
-                                    </svg>
-                                </button>
-                            </td>",
+                            <a href='traitement.php?action=qttPlus&id=$index'>+</a>"
+                            .$product['qtt']."</td>",
+                            "<td class='fs-2 text-secondary'>".number_format($product['total'],2,","," ")." €</td>",
                         "</tr>";
                           $totalGeneral +=$product['total'];
                 }
