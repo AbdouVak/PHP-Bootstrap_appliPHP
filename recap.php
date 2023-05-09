@@ -55,16 +55,25 @@
                             //fonction number_format() permet de modifier l'affichage d'une valeur numérique
                             "<td class='fs-2 text-secondary'>".number_format($product['price'],2,",","&nsbp;")." €</td>",
                             "<td class='fs-2 text-secondary'>
-                            <a href='traitement.php?action=qttPlus&id=$index'>+</a>"
-                            .$product['qtt']."</td>",
+                                <a href='traitement.php?action=qttMinus&id=$index'>-</a>".
+                                $product['qtt'].
+                                "<a href='traitement.php?action=qttPlus&id=$index'>+</a>".
+                            "</td>",
+                            
                             "<td class='fs-2 text-secondary'>".number_format($product['total'],2,","," ")." €</td>",
+                            "<td class='fs-2 text-secondary'>".
+                                "<a href='traitement.php?action=delete'>Delete</a>".
+                            "</td>",
                         "</tr>";
                           $totalGeneral +=$product['total'];
                 }
                 echo "<tr>",
                         "<td class='fs-2 text-secondary' colspan=4>Total général:</td>",
                         "<td class='fs-2 text-secondary'><strong>".number_format($totalGeneral,2,",","&nbsp;")."&nbsp;€</strong></td>",
-                    "</tbody>",
+                        "<td class='fs-2 text-secondary'>".
+                                "<a href='traitement.php?action=deleteAll'>DeleteALL</a>".
+                        "</td>",
+                        "</tbody>",
                  "</table></div>";
         }
     ?>
