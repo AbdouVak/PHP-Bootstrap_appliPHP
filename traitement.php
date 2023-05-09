@@ -30,20 +30,44 @@
                     header("Location:index.php");
                     break;
 
+            case "qttMinus" :
+
+                foreach($_SESSION['products'] as $index => $product){
+                    if($_GET['id'] == $index){
+                        echo $index.$product["qtt"]= $index.$product["qtt"] = $index.$product["qtt"]-1;
+                        $_SESSION['products'][$index]=$product;
+                    }
+                }
+                    
+                break; 
+
             case "qttPlus" :
 
                 foreach($_SESSION['products'] as $index => $product){
                     if($_GET['id'] == $index){
-                        echo $product["qtt"]= $product["qtt"]-1;
+                        echo $index.$product["qtt"]= $index.$product["qtt"]=$index.$product["qtt"]+1;
+                        $_SESSION['products'][$index]=$product;
                     }
-
                 }
-                break;
-            
-            case "qttMinus" :
+                    
                 header("Location:recap.php");
-                    break;
+                break;    
+            
+            case "delete" :
+
+                foreach($_SESSION['products'] as $index => $product){
+                    if($_GET['id'] == $index){
+
+                        unset($_SESSION['products'][$index]);
+                    }
+                }
+                header("Location:recap.php");
+                break;
+
             case "deleteAll" :
+                foreach($_SESSION['products'] as $index => $product){
+                    unset($_SESSION['products'][$index]);
+                }
                 
                     break;
         }
