@@ -25,10 +25,13 @@
                             ];
                             //stocke nos données en session en les ajoutant au tableau $_SESSION
                             $_SESSION['products'][]=$product;
-                            header("Location:index.php"); 
+                            $_SESSION['message'] = "<p class='fs-2 text-secondary'>Les produit on bien était ajouté</p>";
+                        }else{
+                            $_SESSION['message'] = "<p class='fs-2 text-secondary'>Les produit n'on pas était ajouté</p>";
                         }
+                        
                     }
-                    
+                    header("Location:index.php");
                     break;
 
             case "qttMinus" :
