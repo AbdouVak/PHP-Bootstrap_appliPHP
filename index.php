@@ -60,9 +60,20 @@
         </div>
     </div>
 
-    <p class="d-flex justify-content-center align-items-center">
-        <input type="submit"  name="submit" value="Ajouter le produit" class="fs-2 bg-secondary text-white border border-0 rounded-5 p-3 shadow-lg">
-    </p>
+    <div class="d-flex justify-content-Center flex-column align-items-center mt-5">
+        <p >
+            <input type="submit"  name="submit" value="Ajouter le produit" class="fs-2 bg-secondary text-white border border-0 rounded-5 p-3 shadow-lg">
+        </p>
+
+        <p>
+            <?php
+            if(isset($_SESSION['products'])){
+                echo $_SESSION['message'];
+            }  
+            ?>
+        </p>
+    </div>
+
     </form>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
