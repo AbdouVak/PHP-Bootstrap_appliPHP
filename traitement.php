@@ -25,51 +25,39 @@
                             ];
                             //stocke nos données en session en les ajoutant au tableau $_SESSION
                             $_SESSION['products'][]=$product;
+                            header("Location:index.php"); 
                         }
                     }
-                    header("Location:index.php");
+                    
                     break;
 
             case "qttMinus" :
 
-                foreach($_SESSION['products'] as $index => $product){
-                    if($_GET['id'] == $index){
-                        echo $index.$product["qtt"]= $index.$product["qtt"] = $index.$product["qtt"]-1;
-                        $_SESSION['products'][$index]=$product;
-                    }
-                }
-                    
-                break; 
+                $_SESSION['products'][$_GET['id']]['qtt']--;
+                $_SESSION['products'][$_GET['id']]['total'] = $_SESSION['products'][$_GET['id']]['qtt'] * $_SESSION['products'][$_GET['id']]['price'];
+                header("Location:recap.php");  
+                break;
 
             case "qttPlus" :
 
-                foreach($_SESSION['products'] as $index => $product){
-                    if($_GET['id'] == $index){
-                        echo $index.$product["qtt"]= $index.$product["qtt"]=$index.$product["qtt"]+1;
-                        $_SESSION['products'][$index]=$product;
-                    }
-                }
-                    
+                $_SESSION['products'][$_GET['id']]['qtt']++;
+                $_SESSION['products'][$_GET['id']]['total'] = $_SESSION['products'][$_GET['id']]['qtt'] * $_SESSION['products'][$_GET['id']]['price'];
                 header("Location:recap.php");
                 break;    
             
             case "delete" :
 
-                foreach($_SESSION['products'] as $index => $product){
-                    if($_GET['id'] == $index){
-
-                        unset($_SESSION['products'][$index]);
-                    }
-                }
+                unset($_SESSION['products'][$_GET['id']]);
                 header("Location:recap.php");
                 break;
 
             case "deleteAll" :
+                
                 foreach($_SESSION['products'] as $index => $product){
                     unset($_SESSION['products'][$index]);
                 }
                 
-                    break;
+                break;
         }
     }
 ?>
