@@ -15,7 +15,7 @@
                         $qtt=filter_input(INPUT_POST,"qtt",FILTER_VALIDATE_INT);
 
                         //vérifie implicitement si chaque variable contient valeur jugée positive par PHP 
-                        if($name && $price && $qtt){
+                        if($name && $price>0 && $qtt>0){
                             //tableau associatif $product
                             $product = [
                                 "name" => $name,
@@ -25,9 +25,9 @@
                             ];
                             //stocke nos données en session en les ajoutant au tableau $_SESSION
                             $_SESSION['products'][]=$product;
-                            $_SESSION['message'] = "<p class='fs-2 text-secondary'>Les produit on bien était ajouté</p>";
+                            $_SESSION['message'] = "<p class='fs-2 text-secondary'>Le produit a bien était ajouté</p>";
                         }else{
-                            $_SESSION['message'] = "<p class='fs-2 text-secondary'>Les produit n'on pas était ajouté</p>";
+                            $_SESSION['message'] = "<p class='fs-2 text-secondary'>Le produit n'a pas était ajouté</p>";
                         }
                         
                     }
@@ -35,9 +35,11 @@
                     break;
 
             case "qttMinus" :
-
-                $_SESSION['products'][$_GET['id']]['qtt']--;
-                $_SESSION['products'][$_GET['id']]['total'] = $_SESSION['products'][$_GET['id']]['qtt'] * $_SESSION['products'][$_GET['id']]['price'];
+                if($_SESSION['products'][$_GET['id']]['qtt'] > 0) {
+                    $_SESSION['products'][$_GET['id']]['qtt']--;
+                    $_SESSION['products'][$_GET['id']]['total'] = $_SESSION['products'][$_GET['id']]['qtt'] * $_SESSION['products'][$_GET['id']]['price'];
+                }
+                
                 header("Location:recap.php");  
                 break;
 
