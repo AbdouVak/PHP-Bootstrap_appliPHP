@@ -68,7 +68,7 @@
                         
                         "<td class='fs-2 text-light'>".number_format($product['total'],2,","," ")." €</td>",
                         "<td class='fs-2 text-light'>
-                            <button type='button' class='btn fs-2 text-light' data-bs-toggle='modal' data-bs-target='#deleteModal'>
+                            <button type='button' class='btn btn-primary btn fs-2 text-light' data-bs-toggle='modal' data-bs-target='#deleteModal'>
                                 Supprimer
                             </button>
                         </td>",
@@ -98,7 +98,9 @@
                             </div>
                             <div class='modal-footer'>
                             <button type='button' class='btn btn-success' data-bs-dismiss='modal'>Ne pas supprimer</button>
-                            <form action='traitement.php?action=delete' method='POST'> <button  type='button' class='btn btn-danger' data-bs-dismiss='modal'>supprimer</button></form>
+                            <button type='button' class='btn btn-success' data-bs-dismiss='modal'>Ne pas supprimer</button>
+                           
+                            
                         </div>
                         </div>
                         </div>
