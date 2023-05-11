@@ -25,9 +25,9 @@
                             ];
                             //stocke nos données en session en les ajoutant au tableau $_SESSION
                             $_SESSION['products'][]=$product;
-                            $_SESSION['message'] = "<p class='fs-2 text-secondary'>Le produit a bien était ajouté</p>";
+                            $_SESSION['message'] = "<div class='alert alert-success fs-2' role='alert'>Le produit a bien était ajouté</div>";
                         }else{
-                            $_SESSION['message'] = "<p class='fs-2 text-secondary'>Le produit n'a pas était ajouté</p>";
+                            $_SESSION['message'] = "<div class='alert alert-danger fs-2' role='alert'>Le produit n'a pas bien était ajouté</div>";
                         }
                     }
                     // verifie si il contient des images
@@ -73,6 +73,9 @@
                     $_SESSION['products'][$_GET['id']]['qtt']--;
                     $_SESSION['products'][$_GET['id']]['total'] = $_SESSION['products'][$_GET['id']]['qtt'] * $_SESSION['products'][$_GET['id']]['price'];
                 }
+                if($_SESSION['products'][$_GET['id']]['qtt'] == 0) {
+                    unset($_SESSION['products'][$_GET['id']]);
+                }
                 
                 header("Location:recap.php");  
                 break;
@@ -92,6 +95,7 @@
                 foreach($_SESSION['products'] as $index => $product){
                     unset($_SESSION['products'][$index]);
                 }
+                header("Location:recap.php");
                 break;
         }
     }
