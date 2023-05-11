@@ -35,7 +35,27 @@
             $totalGeneral = 0;
             //boucle itérative foreach efficace pour exécuter, produit par produit
             foreach($_SESSION['products'] as $index => $product){
-                
+                echo "<div class='modal fade' id='deleteModal' tabindex='-1' aria-labelledby='deleteModalLabel' aria-hidden='true'>
+                        <div class='modal-dialog'>
+                        <div class='modal-content'>
+                            <div class='modal-header'>
+                            <h1 class='modal-title fs-2' id='deleteModalLabel'>".$product['name']."</h1>
+                            <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+                            </div>
+                            <div class='modal-body fs-3'>
+                            <p>Prix: ".number_format($product['total'],2,","," ")." €</p><br>
+                            <p>Quantité: ".$product['qtt']."</p><br>
+                            <p>Total: ".number_format($product['total'],2,","," ")." €</p><br>
+                            </div>
+                            <div class='modal-footer'>
+                            <button type='button' class='btn btn-success' data-bs-dismiss='modal'>Ne pas supprimer</button>
+                            <button type='button' class='btn btn-danger' data-bs-dismiss='modal'>Supprimer</button>
+                        
+                        </div>
+                        </div>
+                        </div>
+                    </div>";
+
                 echo "<div class='modal fade' id='exampleModal' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
                         <div class='modal-dialog'>
                         <div class='modal-content'>
@@ -84,27 +104,7 @@
                     "</td>",
                     "</tbody>",
              "</table></div>";
-             echo "<div class='modal fade' id='deleteModal' tabindex='-1' aria-labelledby='deleteModalLabel' aria-hidden='true'>
-                        <div class='modal-dialog'>
-                        <div class='modal-content'>
-                            <div class='modal-header'>
-                            <h1 class='modal-title fs-2' id='deleteModalLabel'>".$product['name']."</h1>
-                            <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
-                            </div>
-                            <div class='modal-body fs-3'>
-                            <p>Prix: ".number_format($product['total'],2,","," ")." €</p><br>
-                            <p>Quantité: ".$product['qtt']."</p><br>
-                            <p>Total: ".number_format($product['total'],2,","," ")." €</p><br>
-                            </div>
-                            <div class='modal-footer'>
-                            <button type='button' class='btn btn-success' data-bs-dismiss='modal'>Ne pas supprimer</button>
-                            <button type='button' class='btn btn-success' data-bs-dismiss='modal'>Ne pas supprimer</button>
-                           
-                            
-                        </div>
-                        </div>
-                        </div>
-                    </div>";
+             
     }
 ?>
     <?php
