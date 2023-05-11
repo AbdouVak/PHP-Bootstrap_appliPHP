@@ -4,9 +4,16 @@
 ?>
 
 <h1 class="d-flex justify-content-center  text-warning mt-5">Votre panier</h1>
+<body>
+  
+  
+</body>
+
 <?php 
     //vérifie clé "products" du tableau $_SESSION n'existe pas : !isset()
     //soit clé existe mais ne contient aucune donnée : empty()
+    
+    
     if(!isset($_SESSION['products'])||empty($_SESSION['products'])){
         //affiche à utilisateur message prévenant aucun produit existe en session
         echo "<div class='container-sm d-flex flex-row justify-content-around bg-warning rounded-4 shadow mt-5'>
@@ -28,9 +35,29 @@
             $totalGeneral = 0;
             //boucle itérative foreach efficace pour exécuter, produit par produit
             foreach($_SESSION['products'] as $index => $product){
-                echo "<tr>",
+                
+                echo "<div class='modal fade' id='exampleModal' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+                        <div class='modal-dialog'>
+                        <div class='modal-content'>
+                            <div class='modal-header'>
+                            <h1 class='modal-title fs-5' id='exampleModalLabel'>".$product['name']."</h1>
+                            </div>
+                            <div class='modal-body'>
+                            <img src='./upload/".$_SESSION['image']."' width='100%'>
+                            </div>
+                        </div>
+                        </div>
+                    </div>",
+
+                    "<tr>",
                         "<td class='fs-2 text-secondary'>".$index."</td>",
-                        "<td class='fs-2 text-secondary'>".$product['name']."</td>",
+
+                        "<td class='fs-2 text-secondary'>
+                            <button type='button' class='btn fs-2 text-secondary' data-bs-toggle='modal' data-bs-target='#exampleModal'>
+                                ".$product['name']."
+                            </button>
+                        </td>",
+
                         //fonction number_format() permet de modifier l'affichage d'une valeur numérique
                         "<td class='fs-2 text-secondary'>".number_format($product['price'],2,",","&nsbp;")." €</td>",
                         "<td class='fs-2 text-secondary'>
@@ -44,6 +71,7 @@
                             "<a href='traitement.php?action=delete&id=$index' class='text-muted text-decoration-none'>Delete</a>".
                         "</td>",
                     "</tr>";
+
                     $totalGeneral +=$product['total'];
             }
             echo "<tr>",
