@@ -42,9 +42,9 @@ ob_start();
                                                                                                 <!-- |--------------------------------------------------------| -->
     </div>
 
-    <div class="d-flex justify-content-center align-items-center flex-column  mt-5">                                                                        <!-- |------------------------------| -->
+    <div class="d-flex justify-content-center align-items-center flex-column  mt-5">                                                                        <!-- -------------------------------- -->
         <input type="submit" name="submit" value="Ajouter le produit" class="btn btn-success text-light fs-2 border border-0 rounded-5 p-3 shadow-lg ">     <!-- |      Ajouter le produit      | -->
-        <p>                                                                                                                                                 <!-- |------------------------------| -->
+        <p>                                                                                                                                                 <!-- -------------------------------- -->
             <?php
             if (isset($_SESSION['message'])) {      //  |--------------------------------|
                 echo $_SESSION['message'];          //  | Le produit a bien était ajouté |

@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <!--                --------        ----------      -->
+    <!--                --------        -------(?)      -->
     <!--                | Home |        | panier |      -->
     <!--                --------        ----------      -->
     <header>
@@ -23,7 +23,7 @@
                 Home 
             </button>
 
-            <!--         ----------         -->
+            <!--         --------(?)        -->
             <!--         | panier |         -->
             <!--         ----------         -->
             <button type="button" onclick="location.href='recap.php'" class="btn btn-primary position-relative">
