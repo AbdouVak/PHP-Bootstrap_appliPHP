@@ -86,7 +86,7 @@
                 header("Location:recap.php");
                 break;    
             
-            case "delete" :
+           case "delete" :
                 unset($_SESSION['products'][$_GET['id']]);
                 header("Location:recap.php");
                 break;
