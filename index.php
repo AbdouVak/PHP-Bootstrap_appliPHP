@@ -2,9 +2,10 @@
 session_start();
 ob_start();
 ?>
+<!-- ------------------------------Ajouter Votre produit------------------------------ -->
 <h1 class="d-flex justify-content-center mt-5 text-primary">Ajouter Votre produit</h1>
+
 <form action="traitement.php?action=ajoutProduit" method="POST" class=" container-sm  w-50 d-flex flex-column bg-primary mt-5 rounded-4 shadow-lg" enctype="multipart/form-data">
-    
     <div class="mt-5 ">
 
         <div class="d-flex flex-row justify-content-between bg-light rounded-4 shadow">

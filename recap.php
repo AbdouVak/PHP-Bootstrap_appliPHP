@@ -65,16 +65,16 @@
                         "</div>";
 
                 //Affiche une image du produit on on clique sur le nom 
-                echo    "<div class='modal fade' id='imgModal' tabindex='-1' aria-labelledby='imgModalLabel' aria-hidden='true'>",     //   Pommes
-                            "<div class='modal-dialog'>",                                                                              //   ____________________
-                                "<div class='modal-content'>",                                                                         //          ,#((//   
-                                    "<div class='modal-header'>",                                                                      //       #%(###(%((##((
-                                        "<h1 class='modal-title fs-5' id='imgModalLabel'>".$product['name']."</h1>",                   //      %%%%%#%& /#&&& 
-                                    "</div>",                                                                                          //      &&%%%%%&%%%&&&  
-                                    "<div class='modal-body'>",                                                                        //      %&%&%(%#%%%&&&
-                                        "<img src='./upload/".$_SESSION['image']."' width='100%'>",                                    //       (%%%%%%%&&&# 
-                                    "</div>",                                                                                          //        ,&%%%%&&* 
-                                "</div>",
+                echo    "<div class='modal fade' id='imgModal' tabindex='-1' aria-labelledby='imgModalLabel' aria-hidden='true'>",     
+                            "<div class='modal-dialog'>",                                                                              //   Pommes
+                                "<div class='modal-content'>",                                                                         //   ____________________
+                                    "<div class='modal-header'>",                                                                      //          ,#((//   
+                                        "<h1 class='modal-title fs-5' id='imgModalLabel'>".$product['name']."</h1>",                   //       #%(###(%((##((
+                                    "</div>",                                                                                          //      %%%%%#%& /#&&& 
+                                    "<div class='modal-body'>",                                                                        //      &&%%%%%&%%%&&&  
+                                        "<img src='./upload/".$_SESSION['image']."' width='100%'>",                                    //      %&%&%(%#%%%&&&
+                                    "</div>",                                                                                          //       (%%%%%%%&&&# 
+                                "</div>",                                                                                              //        ,&%%%%&&* 
                             "</div>",
                         "</div>";
 
